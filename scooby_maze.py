@@ -1283,21 +1283,17 @@ def parent_level_info(level_num):
 	return (maze_width, maze_height, num_ghosts,
 			shaggy_speed, ghost_speed, scooby_speed)
 
-def guantlet_level_info(level_num):
-	return 100*level_num,100*level_num,1000*level_num,10,8,-5
-
 def usage():
 	print("Usage:")
-	print("   scooby_maze.py [-h] [-p or -g] [-l level] [-y]")
+	print("   scooby_maze.py [-h] [-p] [-l level]")
 	print("")
 	print("h - Show this message")
 	print("p - Parent Mode (much harder)")
-	print("g - Gauntlet Mode (impossible)")
 	print("l - Start at specified level")
 	sys.exit(1)
 	
-if __name__=="__main__":
-	level_info = None
+def main():
+	level_info = _default_level_info
 	start_level = 1
 	i = 1
 	if len(sys.argv) > 1:
@@ -1306,8 +1302,6 @@ if __name__=="__main__":
 				usage()
 			elif sys.argv[i] == "-p":
 				level_info = parent_level_info
-			elif sys.argv[i] == "-g":
-				level_info = guantlet_level_info
 			elif sys.argv[i] == "-l" and len(sys.argv) > i+1:
 				try:
 					start_level = int(sys.argv[i+1])
@@ -1318,8 +1312,8 @@ if __name__=="__main__":
 			else:
 				usage()
 			i = i + 1
-	if level_info != None:
-		obj = Game(level_info,start_level=start_level)
-	else:
-		obj = Game(start_level=start_level)
+	obj = Game(level_info,start_level=start_level)
 	obj.Run()
+	
+if __name__=="__main__":
+	main()
