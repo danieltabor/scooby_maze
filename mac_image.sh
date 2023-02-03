@@ -1,0 +1,1 @@
+hdiutil create -srcfolder dist -volname ScoobyMaze ScoobyMaze
