@@ -1,8 +1,10 @@
 Scooby Doo and the Haunted Maze
 =======================================================================
+![scooby_maze_screenshot](https://user-images.githubusercontent.com/70762874/216735029-1c59d8e9-0926-41c6-ad77-dce3ca96980e.jpg)
 
 I originally wrote this for my niece when she was 4.  It was originally
 written for Python 2.X and had scripts for packaging up a Windows
+
 installer and a Mac dmg.  I've updated it to work with Python 3 and 
 modern pygame.
 
